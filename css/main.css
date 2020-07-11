@@ -73,7 +73,6 @@ html {
     padding-right: 15px;
     width: 100%;
     text-align: left;
-    display: table-cell;
     vertical-align: middle;
     color: #fff;
     text-overflow: ellipsis;
@@ -129,11 +128,23 @@ html {
     position: relative;
 }
 
-.right-top {
-    width: 100%;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 36px;
+    background-color: #2196F3;
+    grid-template-areas: "info button";
     text-align: center;
-    display: table;
-    background-size: cover;
+}
+
+.right-top-button {
+    grid-area: button;
+}
+
+.peer-info {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    grid-area: info;
 }
 
 .peer-status {
@@ -149,7 +160,6 @@ html {
     font-size: 13px;
     width: 98%;
     text-align: left;
-    display: table-cell;
     vertical-align: middle;
     color: #fff;
     text-overflow: ellipsis;
@@ -177,7 +187,6 @@ html {
 .container::after {
     content: "";
     clear: both;
-    display: table;
 }
 
 .message-body {
@@ -305,7 +314,7 @@ html {
 
 .left-top,
 .right-top {
-    display: table;
+    width: 100%;
     min-height: 50px;
     height: 6vh;
     background-color: #5682a3;
@@ -322,7 +331,7 @@ html {
 }
 
 .right-dropdown-toggle:hover,
-.peer-name:hover,
+.peer-info:hover,
 .left-top:hover {
     background: #467293;
 }
