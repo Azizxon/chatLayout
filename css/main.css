@@ -46,34 +46,21 @@ html {
 
 /* Menu */
 
-.left-top-menu {
-    padding-left: 15px;
-    border: 0;
-    border-radius: 0;
-    outline: none;
-    color: #d7e5f0;
-    background-color: inherit;
-    height: 100%;
-    float: left;
-}
-
 .left-menu {
+    grid-area: left-top-button;
     padding-left: 15px;
     border: 0;
     border-radius: 0;
     outline: none;
     color: #d7e5f0;
     background-color: inherit;
-    height: 100%;
-    float: left;
 }
 
 .app-name {
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100%;
-    text-align: left;
-    vertical-align: middle;
+    padding-left: 30px;
+    display: flex;
+    grid-area: left-top-name;
+    align-items: center;
     color: #fff;
     text-overflow: ellipsis;
     font: 13px Tahoma, sans-serif, Arial, Helvetica;
@@ -128,23 +115,25 @@ html {
     position: relative;
 }
 
-.grid-container {
+.right-top.grid-container {
     display: grid;
     grid-template-columns: auto 36px;
-    background-color: #2196F3;
-    grid-template-areas: "info button";
+    grid-template-areas: "right-top-info right-top-button";
     text-align: center;
 }
 
-.right-top-button {
-    grid-area: button;
+.left-top.grid-container {
+    display: grid;
+    grid-template-columns: 36px auto;
+    grid-template-areas: "left-top-button left-top-name";
+    text-align: center;
 }
 
 .peer-info {
     display: flex;
     align-items: center;
     height: 100%;
-    grid-area: info;
+    grid-area: right-top-info;
 }
 
 .peer-status {
