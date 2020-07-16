@@ -1,63 +1,8 @@
-/*
-*   Common
-*/
-
-* {
-    box-sizing: border-box;
-    resize: none;
-}
-
-.column,
-body,
-html {
-    min-height: 93vh;
-    height: 97vh;
-    margin: 0;
-}
-
-.row {
-    min-width: 1024px;
+body {
+    display: grid;
+    grid-template-columns: 270px calc(100% - 270px);
+    grid-template-areas: "left right";
     min-height: 600px;
-    height: 100%;
-}
-
-.column {
-    min-height: 96%;
-    float: left;
-}
-
-[contenteditable=true]:empty:before {
-    color: #c1c1c1;
-    content: attr(placeholder);
-    pointer-events: none;
-    display: block;
-}
-
-
-/*
-*   Both Side
-*/
-
-.left-top,
-.right-top {
-    width: 100%;
-    min-height: 50px;
-    height: 6vh;
-    background-color: #5682a3;
-}
-
-.right-dropdown-toggle {
-    border: 0;
-    border-radius: 0;
-    outline: none;
-    color: #d7e5f0;
-    background-color: inherit;
-    height: 100%;
-    float: right;
-}
-
-.right-dropdown-toggle:hover,
-.peer-info:hover,
-.left-top:hover {
-    background: #467293;
+    min-width: 800px;
+    margin: 0;
 }

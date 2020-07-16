@@ -1,0 +1,359 @@
+.grid-right {
+    position: relative;
+    display: block;
+    grid-area: right;
+    grid-template-areas: "right-header" "dialog" "message-form";
+    grid-template-rows: 50px calc(100% - 120px) 70px;
+    min-width: 500px;
+    background-color: #f1f6fa;
+}
+
+
+/*   Top   */
+
+.grid-right .header {
+    min-height: 50px;
+    grid-area: right-header;
+    display: grid;
+    grid-template-areas: "peer-info right-dropdown-toggle";
+    grid-template-columns: calc(100% - 40px) 40px;
+    background-color: #5682a3;
+}
+
+.grid-right .header .peer-info:hover,
+.grid-right .header .right-dropdown-toggle:hover {
+    background-color: #467293;
+}
+
+.grid-right .peer-info {
+    line-height: 50px;
+    vertical-align: middle;
+    grid-area: peer-info;
+    padding-left: 30px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #fff;
+    font-family: Tahoma, sans-serif, Arial, Helvetica;
+}
+
+.grid-right .peer-info .peer-status {
+    font-weight: normal;
+    padding-left: 10px;
+    font-size: 11.05px;
+}
+
+.grid-right .right-dropdown-toggle {
+    display: flex;
+    flex-direction: column;
+    grid-area: right-dropdown-toggle;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    color: #d7e5f0;
+    height: 100%;
+    background-color: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-right .header .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 51px;
+    right: 0;
+    display: grid;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.grid-right .header .dropdown-menu .menu-item {
+    padding: 10px;
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    color: #42749b;
+}
+
+.grid-right .header .dropdown-menu .menu-item:first-child {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px 10px;
+}
+
+.grid-right .header .right-dropdown-toggle:active+.dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.grid-right .right-dropdown-toggle svg {
+    color: #d7e5f0;
+    background-color: inherit;
+}
+
+
+/*   Center   */
+
+.grid-right .dialog {
+    grid-area: dialog;
+    overflow-y: scroll;
+    max-height: 536px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.grid-right .dialog .conversation {
+    display: grid;
+    grid-template-areas: "conversation-info" "conversation";
+    padding: 10px 0;
+}
+
+.grid-right .conversation-date {
+    grid-area: conversation-info;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 75px;
+    border-radius: 15px;
+    padding: 10px 0;
+    color: gray;
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    background-color: #e1e6ea;
+}
+
+.grid-right .conversation .unread-messages {
+    grid-area: conversation-info;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 75%;
+    padding: 10px 0;
+    color: gray;
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    background: rgb(225, 230, 234);
+    background: radial-gradient(circle, rgba(225, 230, 234, 1) 0%, rgba(241, 246, 250, 1) 100%);
+}
+
+.grid-right .dialog .container {
+    display: grid;
+    grid-area: conversation;
+    grid-template-areas: "selected user-img body";
+    grid-template-columns: 60px 60px calc(100% - 120px);
+    padding: 0 5px;
+    margin: 10px 0;
+    border-radius: 15px;
+}
+
+.grid-right .dialog .container .avatar {
+    grid-area: user-img;
+    object-fit: cover;
+    padding: 10px 0;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.grid-right .dialog .container .body {
+    grid-area: body;
+    display: flexbox;
+    flex-direction: column;
+    padding: 10px 0;
+    height: fit-content;
+}
+
+.grid-right .dialog .container .body .body-item {
+    display: grid;
+    grid-template-areas: "message-body time";
+    grid-template-columns: calc(100% - 70px);
+    padding: 5px 10px;
+    height: fit-content;
+}
+
+.grid-right .dialog .container .user-name,
+.grid-right .dialog .container .message-body {
+    grid-area: message-body;
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    height: fit-content;
+}
+
+.grid-right .dialog .container .message-body.file {
+    display: grid;
+    grid-template-areas: "icon file";
+    grid-template-columns: 46px max-content;
+}
+
+.grid-right .dialog .container .message-body figure {
+    width: 30%;
+    min-width: 200px;
+    border: thin silver solid;
+    background-color: white;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+img.scaled {
+    object-fit: cover;
+    vertical-align: middle;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.grid-right .dialog .container .message-body figure figcaption {
+    padding: 10px;
+}
+
+.grid-right .dialog .container .message-body .download-icon {
+    grid-area: icon;
+    padding: 5px;
+    align-self: center;
+}
+
+.grid-right .dialog .container .message-body .download-icon:hover {
+    cursor: pointer;
+}
+
+.grid-right .dialog .container .message-body .file {
+    grid-area: file;
+    display: grid;
+    grid-template-areas: "file-name" "file-size";
+    padding: 5px;
+    align-self: center;
+}
+
+.grid-right .dialog .container .message-body .file .file-info {
+    vertical-align: middle;
+    padding: 5px 0;
+}
+
+.grid-right .dialog .container .message-body .file .file-info .file-name {
+    padding-right: 10px;
+    text-decoration: none;
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    color: black;
+    font-weight: bold;
+}
+
+.grid-right .dialog .container .message-body .file .file-info .file-name:hover {
+    text-decoration: underline;
+}
+
+.grid-right .dialog .container .message-body .file-size {
+    grid-area: file-size;
+    font: 11.05px Tahoma, sans-serif, Arial, Helvetica;
+    align-self: center;
+    color: gray;
+}
+
+.grid-right .dialog .container .user-name {
+    color: #3a6d99;
+    font-weight: bold;
+}
+
+.grid-right .dialog .container .user-name a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.grid-right .dialog .container .message-time {
+    grid-area: time;
+    text-align: right;
+    vertical-align: top;
+    font: 11.05px Tahoma, sans-serif, Arial, Helvetica;
+    color: gray;
+}
+
+.grid-right .dialog::-webkit-scrollbar,
+.grid-right .dialog::-webkit-scrollbar-thumb {
+    background-color: rgba(30, 85, 127, 0.3);
+    color: rgba(30, 85, 127, 0.3);
+    width: 26px;
+    border-radius: 13px;
+    background-clip: padding-box;
+    border: 10px solid transparent;
+}
+
+.grid-right .dialog::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 0 10px;
+}
+
+.grid-right .dialog:not(:hover)::-webkit-scrollbar-thumb,
+.grid-right .dialog:not(:hover)::-webkit-scrollbar {
+    color: transparent;
+    background-color: transparent;
+}
+
+
+/*  Bottom  */
+
+.grid-right .message-form {
+    grid-area: message-form;
+    display: grid;
+    grid-template-areas: "attach message-field smile send";
+    grid-template-columns: 30px calc(100% - 100px) 30px 30px;
+    padding: 0 10px;
+    height: 70px;
+    resize: none;
+    background: white;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.grid-right .message-form .attach {
+    grid-area: attach;
+}
+
+.grid-right .message-form .smile {
+    grid-area: smile;
+}
+
+.grid-right .message-form .send {
+    grid-area: send;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.grid-right .message-form .microphone {
+    grid-area: send;
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+.grid-right .message-form .message-field:not(:placeholder-shown)~.send {
+    opacity: 1;
+}
+
+.grid-right .message-form .message-field:not(:placeholder-shown)~.microphone {
+    opacity: 0;
+}
+
+.grid-right .message-form .attach,
+.grid-right .message-form .smile,
+.grid-right .message-form .send,
+.grid-right .message-form .microphone {
+    background-color: transparent;
+    width: 100%;
+    align-self: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+}
+
+.grid-right .message-form .message-field {
+    grid-area: message-field;
+    width: inherit;
+    height: calc(100% - 40px);
+    border: 0;
+    outline: none;
+    resize: none;
+    margin: 5px;
+    padding: 10px;
+    overflow-y: hidden;
+    align-self: center;
+    box-shadow: 0px 1px 1px 0 #CCC, 0px 0px 1px 0px #CCC;
+}

@@ -1,0 +1,207 @@
+.grid-left {
+    position: relative;
+    grid-area: left;
+    display: block;
+    grid-template-areas: "left-header" "search-panel" "dialogs";
+    grid-template-rows: 51px 61px calc(100% - 112px);
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    padding: 0;
+    margin: 0;
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.grid-left .header {
+    min-height: 51px;
+    resize: none;
+    grid-area: left-header;
+    display: grid;
+    grid-template-areas: "top-button app-name";
+    grid-template-columns: 50px calc(100% - 50px);
+    background-color: #5682a3;
+    font-size: 15px;
+}
+
+.grid-left .dropdown-menu {
+    position: absolute;
+    background-color: white;
+    min-width: 270px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    display: grid;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+.grid-left .dropdown-menu .menu-item-name {
+    font: 13px Tahoma, sans-serif, Arial, Helvetica;
+    color: #42749b;
+    padding-left: 5px;
+}
+
+.grid-left .header:active+.dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.grid-left .header:active .left-menu #menu-smaller,
+.grid-left .header:active .left-menu #menu-bigger {
+    opacity: 0;
+}
+
+.grid-left .header:not(:active) .left-menu #menu-close {
+    opacity: 0;
+}
+
+.grid-left .dropdown-menu .menu-item {
+    display: grid;
+    grid-template-areas: "menu-item-icon menu-item-name";
+    grid-template-columns: 34px auto;
+    height: 40px;
+    padding: 2.5px 10px;
+    align-content: center;
+}
+
+.grid-left .header:hover {
+    background-color: #467293;
+}
+
+.grid-left .header:hover .left-menu g #menu-smaller,
+.grid-left .header:not(:hover) .left-menu g #menu-bigger {
+    opacity: 0;
+}
+
+.grid-left .left-menu {
+    grid-area: top-button;
+    padding-left: 15px;
+    align-self: center;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    color: #d7e5f0;
+    background-color: inherit;
+}
+
+.grid-left .left-menu g {
+    transition: opacity 0.1s;
+}
+
+.grid-left .app-name {
+    grid-area: app-name;
+    padding-left: 15px;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    color: #d7e5f0;
+    vertical-align: middle;
+    line-height: 50px;
+}
+
+.grid-left .search-panel {
+    display: grid;
+    grid-area: search-panel;
+    background-color: #ededed;
+    padding: 8.5px;
+    margin: 0;
+    grid-template-areas: "icon input-field close-icon";
+    grid-template-columns: 14px calc(100% - 28px) 14px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.grid-left .search-panel .search-icon {
+    grid-area: icon;
+    align-self: center;
+    vertical-align: middle;
+    color: silver;
+}
+
+.grid-left .search-panel #search-box {
+    grid-area: input-field;
+    font-size: 13px;
+    outline: 0;
+    border: 0;
+    padding-left: 10px;
+    background-color: #ededed;
+}
+
+.grid-left .search-panel input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+.grid-left .search-panel .search-close-icon {
+    grid-area: close-icon;
+    align-self: center;
+    vertical-align: middle;
+    opacity: 0;
+}
+
+.grid-left .search-panel #search-box:not(:placeholder-shown)~.search-close-icon {
+    opacity: 1;
+}
+
+.grid-left .dialogs {
+    position: relative;
+    grid-area: dialogs;
+    padding: 0;
+    margin: 0;
+    max-height: 552px;
+    overflow-y: scroll;
+}
+
+.grid-left .dialogs .dialog {
+    display: grid;
+    grid-template-areas: "img info last-active-time";
+    grid-template-columns: 70px calc(100% - 120px) 50px;
+    padding: 12px;
+}
+
+.grid-left .dialogs .dialog:hover {
+    background-color: #f1f6fa;
+}
+
+.grid-left .dialogs .dialog .contact-img {
+    grid-area: img;
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.grid-left .dialogs .dialog .contact-info {
+    grid-area: info;
+    align-self: center;
+    font: inherit;
+}
+
+.grid-left .dialogs .dialog .contact-info .contact-name {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.grid-left .dialogs .dialog .contact-info .contact-last-message {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.grid-left .dialogs .dialog .contact-last-active {
+    grid-area: last-active-time;
+    font-size: 11.05px;
+    padding-top: 12px;
+}
+
+.grid-left .dialogs::-webkit-scrollbar,
+.grid-left .dialogs::-webkit-scrollbar-thumb {
+    background-color: rgba(30, 85, 127, 0.3);
+    color: rgba(30, 85, 127, 0.3);
+    width: 3px;
+    border: solid transparent;
+}
+
+.grid-left .dialogs:not(:hover)::-webkit-scrollbar-thumb,
+.grid-left .dialogs:not(:hover)::-webkit-scrollbar {
+    color: transparent;
+    background-color: transparent;
+}
