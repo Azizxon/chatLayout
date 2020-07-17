@@ -3,10 +3,10 @@
     display: block;
     grid-area: right;
     grid-template-areas: "right-header" "dialog" "message-form";
-    grid-template-rows: 50px calc(100vh - 120px) 70px;
+    grid-template-rows: 50px calc(100% - 70px) 70px;
     background-color: #f1f6fa;
-    min-width: 430px;
-    min-height: 300px;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -51,7 +51,6 @@
     border-radius: 0;
     outline: none;
     color: #d7e5f0;
-    height: 100%;
     background-color: inherit;
     justify-content: center;
     align-items: center;
@@ -98,7 +97,6 @@
     grid-area: dialog;
     overflow-y: scroll;
     height: calc(100vh - 121px);
-    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -138,8 +136,8 @@
 .grid-right .dialog .container {
     display: grid;
     grid-area: conversation;
-    grid-template-areas: "selected user-img body";
-    grid-template-columns: 60px 60px calc(100% - 120px);
+    grid-template-areas: "user-img body";
+    grid-template-columns: 60px calc(100% - 60px);
     padding: 0 5px;
     margin: 10px 0;
     border-radius: 15px;
@@ -166,7 +164,7 @@
     display: grid;
     grid-template-areas: "message-body time";
     grid-template-columns: calc(100% - 70px);
-    padding: 5px 10px;
+    padding: 10px 0 10px 10px;
     height: fit-content;
 }
 
@@ -184,8 +182,7 @@
 }
 
 .grid-right .dialog .container .message-body figure {
-    width: 30%;
-    min-width: 200px;
+    max-width: 400px;
     border: thin silver solid;
     background-color: white;
     border: 0;
@@ -206,7 +203,7 @@ img.scaled {
 }
 
 .grid-right .dialog .container .message-body figure figcaption {
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .grid-right .dialog .container .message-body .download-icon {
