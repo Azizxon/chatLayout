@@ -1,8 +1,9 @@
+html,
 body {
     display: grid;
-    grid-template-columns: 270px calc(100% - 270px);
+    grid-template-columns: 270px calc(100vw - 270px);
     grid-template-areas: "left right";
-    min-height: 600px;
-    min-width: 800px;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
 }

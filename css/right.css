@@ -3,8 +3,7 @@
     display: block;
     grid-area: right;
     grid-template-areas: "right-header" "dialog" "message-form";
-    grid-template-rows: 50px calc(100% - 120px) 70px;
-    min-width: 500px;
+    grid-template-rows: 50px calc(100vh - 120px) 70px;
     background-color: #f1f6fa;
 }
 
@@ -12,7 +11,7 @@
 /*   Top   */
 
 .grid-right .header {
-    min-height: 50px;
+    min-height: 51px;
     grid-area: right-header;
     display: grid;
     grid-template-areas: "peer-info right-dropdown-toggle";
@@ -97,7 +96,7 @@
 .grid-right .dialog {
     grid-area: dialog;
     overflow-y: scroll;
-    max-height: 536px;
+    height: calc(100vh - 121px);
     width: 100%;
     padding: 0;
     margin: 0;
