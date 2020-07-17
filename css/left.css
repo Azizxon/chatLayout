@@ -61,6 +61,7 @@
 /*  dropdown menu by clicking on header  */
 
 .grid-left .dropdown-menu {
+    width: 270px;
     position: absolute;
     background-color: white;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
