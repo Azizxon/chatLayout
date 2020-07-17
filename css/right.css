@@ -5,6 +5,7 @@
     grid-template-areas: "right-header" "dialog" "message-form";
     grid-template-rows: 50px calc(100vh - 120px) 70px;
     background-color: #f1f6fa;
+    min-width: 450px;
 }
 
 
