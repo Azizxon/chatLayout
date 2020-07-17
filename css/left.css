@@ -161,7 +161,7 @@
     grid-area: dialogs;
     padding: 0;
     margin: 0;
-    max-height: 552px;
+    height: calc(100vh - 112px);
     overflow-y: scroll;
 }
 
